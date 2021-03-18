@@ -1,0 +1,75 @@
+html,body {
+margin:0;
+padding:0;
+    }
+body {
+background-color:white;
+font-family:Verdana,sans-serif;
+font-size:100%;
+padding : 10px;
+    }
+h1 {
+
+font-size:200%;
+justify-content:center;
+text-align:center;
+}
+h2 {
+font-size:150%;
+padding-left:15px;
+    }
+div {
+padding-left:15px;
+        }
+
+.text_bold {
+font-weight:bold;
+        }
+
+img {
+  float: right;
+  width: 120px;
+}
+
+.formation {
+background-color:#e6ffe6;
+grid-column:1;
+grid-row:1;
+      }
+.competences {
+
+background-color:#d5eed5;
+grid-column:2;
+grid-row:1;
+      }
+.experience {
+background-color:#c4ddc4;
+
+grid-column:1;
+grid-row:2;
+      }
+.loisirs {
+background-color:#b3ccb3;
+grid-column:2;
+grid-row:2;
+      }
+/*.tout {
+display:flex;
+       }*/
+.civil {
+font-size:150%;
+text-align: center;
+margin: auto;
+display: bloc;
+       }
+.partiedroite {
+display: bloc;
+      }
+a[href^="mailto"]::before {
+content:"📧 ";
+    }
+
+a[href^="tel"]::before {
+content:"📞 ";
+    }
+
