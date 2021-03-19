@@ -65,10 +65,7 @@ html, body {
       }
       .tout {
         display: flex;
-        flex-basis: max-content;
-        justify-content: space-between;
-
-      
+    
        } 
 
        .partiecentrale {
@@ -77,16 +74,19 @@ html, body {
         
        }
       .partiegauche {
-        display: block;
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
         width: 25%;
         opacity: 0.50;
-        image-orientation: flip;
        }
 
        .partiedroite {
-        
-        display: block;
-        justify-content: right;
+         
+      padding-top: 50px;
+
+        display: flex;
+        justify-content: center;
         width: 25%;
         opacity: 0.50;
       }
