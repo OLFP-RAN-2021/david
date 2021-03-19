@@ -1,5 +1,6 @@
 html, body {
-    margin: 0;
+  height: 800px;
+      margin: 0;
     padding: 0;
     }
 
@@ -19,7 +20,11 @@ html, body {
     padding-left: 15px;
     }
 
-  
+  .back_img{
+    background-image: url(system.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+  } 
     .text_bold {
         font-weight: bold;
       }
@@ -34,43 +39,54 @@ html, body {
       }
       
       .formation {
-       background-color: rgb(128, 128, 128);
+       background-color: rgb(0, 0, 0,0.5);
         grid-column: 1;
         grid-row: 1;
       }
       .competences {
-      
+        background-color: rgb(0, 0, 0,0.75);
         grid-column: 2;
         grid-row: 1;
       }
       .experience {
-    
+        background-color: rgb(0, 0, 0,0.75);
         grid-column: 1;
         grid-row: 2;
       }
       .loisirs {   
-        background-color: rgb(128, 128, 128);
+        background-color: rgb(0, 0, 0,0.5);
         grid-column: 2;
         grid-row: 2;
       }
+      .white_text{
+ 
+        color: rgb(4, 246, 4);
+      }
       .tout {
         display: flex;
+        flex-basis: max-content;
+        justify-content: space-between;
+
+      
+       } 
+
+       .partiecentrale {
+        display: block;
+        width: 50%;
+        
        }
       .partiegauche {
         display: block;
         width: 25%;
-        padding-top: 50px;
+        
        }
 
-       .partiecentral {
-        display:block;
-        width: 50%;
-      }
-
        .partiedroite {
-        display: block;
+        
+        display: flex;
+        justify-content: right;
         width: 25%;
-        padding-top: 50px;
+      
       }
 
       a[href^="mailto"]::before {
