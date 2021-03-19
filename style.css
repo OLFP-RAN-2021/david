@@ -33,6 +33,7 @@ html, body {
         }
 
       .magrille {
+        margin-top: 80px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: minmax(100px ,auto);
@@ -78,18 +79,19 @@ html, body {
       .partiegauche {
         display: block;
         width: 25%;
-        
+        opacity: 0.50;
+        image-orientation: flip;
        }
 
        .partiedroite {
         
-        display: flex;
+        display: block;
         justify-content: right;
         width: 25%;
-      
+        opacity: 0.50;
       }
 
-      a[href^="mailto"]::before {
+      a[href^="mailto"]::before{
         content: "📧 ";
     }
     
