@@ -48,13 +48,17 @@ td, th {
 
 .All_the_screen {
     display: flex;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    background-color: coral;
 }
 
 .Left_side {
-    background-color: gray;
-    display: block;
-    width: 70%;
+    background-image: url("VI-code.png");
+    /* display: block; */
+    width: 100%;
+    /* opacity: 0.15;  */
+    /* background-repeat: no-repeat; */
+    /* height: auto; */
 }
 
 .Right_side {
@@ -68,8 +72,13 @@ td, th {
     height: auto;
 }
 
-.Background_img {
-    width: 50%;
-    height: auto;
-    opacity: 0.25;
+p {
+    color:white;
 }
+
+.text_center {
+    text-align: center;
+  }
+  .green_text {
+    color: rgb(4, 246, 4);
+  }
