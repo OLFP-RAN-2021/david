@@ -1,13 +1,75 @@
 /* D'abord un css reset */
-html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
-ul{list-style:none}
-button,input,select{margin:0}
-html{box-sizing:border-box}
-*,*::before,*::after{box-sizing:inherit}
-img,video{height:auto;max-width:100%}
-iframe{border:0}
-table{border-collapse:collapse;border-spacing:0}
-td,th{padding:0}
+
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+ul {
+    list-style: none
+}
+
+button, input, select {
+    margin: 0
+}
+
+html {
+    box-sizing: border-box
+}
+
+*, *::before, *::after {
+    box-sizing: inherit
+}
+
+img, video {
+    height: auto;
+    max-width: 100%
+}
+
+iframe {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td, th {
+    padding: 0
+}
 
 /* Fin du css reset */
+
+.All_the_screen {
+    display: flex;
+    background-color: blueviolet;
+}
+
+.Left_side {
+    background-color: gray;
+    display: block;
+    width: 70%;
+}
+
+.Right_side {
+    background-color: darkgray;
+    display: block;
+    width: 30%;
+}
+
+.Img_right_side {
+    width: 100%;
+    height: auto;
+}
+
+.Background_img {
+    width: 50%;
+    height: auto;
+    opacity: 0.25;
+}
