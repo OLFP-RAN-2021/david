@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Mon C.V.</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-</head>
+ </head>
 
 <body class="back_img">
 
@@ -16,7 +16,6 @@
 
         </div>
 
-
         <div class="partiecentrale">
          <!--   <h1 class="white_text">Mon C.V.</h1><br> -->
             <div>
@@ -25,10 +24,24 @@
                 <p class="text_center white_text">Brylka David</p>
                 <p class="text_center white_text"> 15 rue des vignes</p>
                 <p class="text_center white_text"> 68200 mulhouse</p>
-                <address class="text_center white_text">
-                    <a class="white_text" href="mailto:david.b@jagware.org">email</a><br>
-                    <a class="white_text" href="tel:+330651684404">0651684404</a>
-                </address>
+
+                <form action="/ma-page-de-traitement" method="post">
+                    <div>
+                        <label class="white_text" for="name">Nom :</label>
+                        <input type="text" id="name" name="user_name">
+                    </div>
+                    <div>
+                        <label class="white_text" for="mail">e-mail :</label>
+                        <input class="white_text" type="email" id="mail" name="user_mail">
+                    </div>
+                    <div>
+                        <label class="white_text" for="msg">Message :</label>
+                        <textarea id="msg" name="user_message"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Envoyer le message</button>
+                    </div>
+                </form>
             </div>
             <div class="magrille">
 

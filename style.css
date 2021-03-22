@@ -1,14 +1,67 @@
+/*
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+ul{list-style:none}
+button,input,select{margin:0}
+html{box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}img,
+video{height:auto;max-width:100%}
+iframe{border:0}
+table{border-collapse:collapse;border-spacing:0}
+td,th{padding:0}
+
+
+*/
 html, body {
   height: 800px;
       margin: 0;
     padding: 0;
-    }
+}
+ 
 
-   body {
+     body {
     background-color: white; 
     font-family: Verdana, sans-serif; 
     font-size: 100%;
     }
+
+    form {
+      /* Uniquement centrer le formulaire sur la page */
+      margin: 0 auto;
+      width: 400px;
+      /* Encadré pour voir les limites du formulaire */
+      padding: 1em;
+      border: 1px solid  rgb(4, 255, 4);
+      border-radius: 1em;
+    }
+    label {
+      /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+      display: inline-block;
+      width: 90px;
+      text-align: right;
+    }
+    input, textarea {
+      /* Pour s'assurer que tous les champs texte ont la même police.
+         Par défaut, les textarea ont une police monospace */
+      font: 1em sans-serif;
+    
+      /* Pour que tous les champs texte aient la même dimension */
+      width: 300px;
+      box-sizing: border-box;
+    
+      /* Pour harmoniser le look & feel des bordures des champs texte */
+      border: 1px solid #999;
+    }
+    .button {
+      /* Pour placer le bouton à la même position que les champs texte */
+      padding-left: 180px; /* même taille que les étiquettes */
+    }
+    
+button {
+  /* Cette marge supplémentaire représente grosso modo le même espace que celui
+     entre les étiquettes et les champs texte */
+  margin-left: .5em;
+}
 
    h1 {
     font-size: 200%; 
@@ -91,11 +144,4 @@ html, body {
         opacity: 0.50;
       }
 
-      a[href^="mailto"]::before{
-        content: "📧 ";
-    }
-    
-    a[href^="tel"]::before {
-        content: "📞 ";
-    }
        
