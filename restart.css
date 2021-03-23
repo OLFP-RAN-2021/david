@@ -76,12 +76,18 @@ td, th {
 
 p {
     color: #fff;  
+    /* color: black;   */
+}
+pre {
+    color: #fff;  
+    size: 30px;
 }
 span {
     color: #fff;  
 }
 .green_span {
-    color: green;  
+    /* color: green;   */
+    color: rgb(3, 250, 3)
 }
 .text_center {
     text-align: center;
