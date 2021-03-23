@@ -77,10 +77,11 @@ td, th {
 p {
     color: #fff;  
 }
-pre {
-    font-size: 20px;
-    background-color: grey);
-    color: white;
+span {
+    color: #fff;  
+}
+.green_span {
+    color: green;  
 }
 .text_center {
     text-align: center;
