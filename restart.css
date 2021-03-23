@@ -1,4 +1,4 @@
-/* D'abord un css reset */
+/*               D'abord un css reset                    */
 
 html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -44,16 +44,18 @@ td, th {
     padding: 0
 }
 
-/* Fin du css reset */
+/*                  Fin du css reset                             */
 
+/* mon flex prenant l'écran */
 .All_the_screen {
     display: flex;
-    /* background-color: blueviolet; */
-    background-color: coral;
 }
-
+/* Mon coté gauche de l'écran  */
 .Left_side {
-    background-image: url("VI-code.png");
+    background-color: rgb(14, 9, 9);
+    /* background-image: u
+    rl("VI-code.png"); */
+    /* background-image: url("code_png-grad1.png"); */
     /* display: block; */
     width: 100%;
     /* opacity: 0.15;  */
@@ -73,12 +75,20 @@ td, th {
 }
 
 p {
-    color:white;
+    color: #fff;  
 }
-
+pre {
+    font-size: 20px;
+    background-color: grey);
+    color: white;
+}
 .text_center {
     text-align: center;
-  }
-  .green_text {
-    color: rgb(4, 246, 4);
-  }
+}
+
+.white_text {
+    color: #fff;
+}
+.green_text {
+    color: green;
+}
