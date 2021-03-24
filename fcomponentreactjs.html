@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset=”utf-8">
+   <title>Warning !! Crash en cours !!</title>
+ </head>
+ <body>
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+  <div id="root"></div>
+
+  <script type="text/babel">
+    class Produit extends React.Component {
+       render() {
+        return <div>Notre produit</div>;
+      }
+    }
+  </script>
+
+<script type="text/babel">
+    ReactDOM.render(<Produit />,document.getElementById('root'));
+  </script>
+
+ </body>
+</html>

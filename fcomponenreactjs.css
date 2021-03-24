@@ -1,0 +1,5 @@
+class Produit extends React.Component {
+  render() {
+   return <div>Notre produit</div>;
+ }
+} 
