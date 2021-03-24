@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tilemap test</title>
+    <!-- <link href="tile_map.css" rel="stylesheet" type="text/css"> -->
+</head>
+
+<body>
+
+    <canvas id="tile_map_canvas" width="288" height="160">
+        Essais de tile map
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById('tile_map_canvas');
+        var ctx = canvas.getContext('2d');
+        console.log(ctx);
+        // ctx.fillRect(25, 25, 100, 100);
+
+        var img = new Image(); 
+        img.src = 'tile_map.bmp';
+
+     img.addEventListener('load', function () {
+            for (var i = 0; i < 16; i++) {
+                for (var j = 0; j < 10; j++) {
+                    ctx.drawImage(img, i * 20, j * 20, 20, 20, i * 20, j * 20, 20, 20);
+                }
+            }
+     }, false);
+    
+    </script>
+
+
+</body>
+
+</html>
