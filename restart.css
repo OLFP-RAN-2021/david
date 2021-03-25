@@ -69,7 +69,7 @@ td, th {
     width: 30%;
 }
 
-.Img_right_side {
+Img {
     width: 100%;
     height: auto;
 }
@@ -85,6 +85,9 @@ ol {
 }
 
 .white_text {
+    color: #fff;
+}
+label,input,textarea {
     color: #fff;
 }
 .green_text {
