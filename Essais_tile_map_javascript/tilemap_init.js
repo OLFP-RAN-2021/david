@@ -33,6 +33,9 @@ var background_tab = [
 var img = new Image();
 img.src = 'tile_map2.png';
 
+var img_hero = new Image();
+img_hero.src = 'hero.png';
+
 var tile_size_x = 32;
 var tile_size_y = 32;
 var cnt = 0;
@@ -44,7 +47,7 @@ img.addEventListener('load', function () {
             cnt = cnt + 1;
         }
     }
-});
+},false);
 
 
 // ctx.fillRect(0, 0, 200, 200);  
@@ -56,4 +59,12 @@ img.addEventListener('load', function () {
             cnt1 = cnt1 + 1;
         }
     }
-}); 
+}, false);
+
+ctx.globalalpha=0.5;
+
+
+img.addEventListener('load', function () {
+     ctx.drawImage(img_hero,0, 0, 32, 32,32,32,32,32);
+               })
+
