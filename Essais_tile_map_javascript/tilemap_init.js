@@ -2,6 +2,7 @@
 var canvas = document.getElementById('tile_map_canvas');
 var ctx = canvas.getContext('2d');
 console.log(ctx);
+
 // ctx.fillRect(25, 25, 100, 100);
 var tab = [
 2,2,2,2,2,2,2,2,2,2,
@@ -66,5 +67,39 @@ ctx.globalalpha=0.5;
 
 img.addEventListener('load', function () {
      ctx.drawImage(img_hero,0, 0, 32, 32,32,32,32,32);
-               })
+               });
+
+// const log = document.getElementById('log');
+
+let heros= new Object (); 
+
+heros.key = {
+    left:false,
+    right:false,
+    up:false,
+    down:false
+    };
+
+
+    document.addEventListener("keydown", event => {
+     switch (e.key) {
+                case 'ArrowLeft':
+                    console.log("fleche gauche")
+                    _this.key.left = true;
+                    break;
+                case 'ArrowUp':
+                    _this.key.up = true;
+                    break;
+                case 'ArrowRight':
+                    _this.key.right = true;
+                    break;
+                case 'ArrowDown':
+                    _this.key.down = true;
+                    break;
+                case 'e':
+                    _this.key.e = true;
+                    break;
+            }
+});
+
 
