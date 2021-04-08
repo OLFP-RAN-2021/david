@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Drag and drop</title>
+    <link href="draganddrop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div>
+        <div ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+            <p class="box">Jette moi ton image ...</p>
+        </div>
+        <div>
+            <button type="button">
+                Rotate left
+            </button>
+            <button type="button">
+                Rotate right
+            </button>
+            <img id="img_to_display" src="" alt="">
+        </div>
+    </div>
+
+    <script src="draganddrop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+
+.All_the_screen {
+  display: flex;
+}
+/* Mon coté gauche de l'écran  */
+.Left_side {
+  background-color: rgb(14, 9, 9);
+  width: 70%;
+}
+
+.Right_side {
+  background-color: black;
+  display: block;
+  width: 30%;
+}
+
+.box {
+  border: 3px solid #666;
+  background-color: #ddd;
+  border-radius: .5em;
+  padding: 10px;
+  /* cursor: move; */
+}
