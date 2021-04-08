@@ -1,0 +1,55 @@
+    <html lang="fr">
+    <head>
+        <meta charSet="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fetch test</title>
+    </head>
+    <style>
+        .post {
+            animation: fadein 2s;
+        }
+
+        @keyframes fadein {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+    </style>
+
+    <body>
+    <button id="button">Charger</button>
+
+    <script>
+        let id = 1
+        const urlBase = 'https://jsonplaceholder.typicode.com/posts/'
+        const button = document.querySelector('button')
+
+        const fetchData = () => { //---> const fetchData = function(){
+            fetch(urlBase + id)
+                .then(response => response.json())
+                .then(data => {
+                    const postTemplate = `
+                            <div class="post" >
+                                <h2>${data.id} - ${data.title}</h2>
+                                <p>${data.body}</p>
+                            </div>
+                        `
+                    const element = document.createElement('div')
+                    element.innerHTML = postTemplate
+
+                    document.querySelector('body').appendChild(element)
+                    id++
+                })
+        }
+
+        button.addEventListener('click', fetchData)
+    </script>
+    </body>
+
+    </html>
+
+
+    ```
+
+
