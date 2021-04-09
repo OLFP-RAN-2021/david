@@ -7,8 +7,21 @@ function dropHandler(ev) {
 
     readImage(Img_file);
 
+    document.getElementById("img_to_display").height = "100";
+    document.getElementById("img_to_display").width = "100";
 
+    let canvas = document.querySelector('canvas');
+    console.log(canvas);
+    let context = canvas.getContext('2d');
 
+    let imgwidth = img_to_display.offsetWidth;
+    let imgheight = img_to_display.offsetHeight;
+    canvas.width = imgwidth;
+    canvas.height = imgheight;
+    context.beginPath();
+    context.arc(75, 75, 50, 0, 2 * Math.PI);
+    context.stroke();
+    // context.drawImage(img_to_display, 0, 0);
 }
 
 function dragOverHandler(ev) {
@@ -18,7 +31,8 @@ function dragOverHandler(ev) {
 }
 
 function readImage(file) {
-    if (file.type && !file.type.startsWith('image/')) {
+    // Protection special Mathieu, seulement prendre les MIME image
+    if (!file.type.startsWith('image/')) {
         return;
     }
 
@@ -29,12 +43,12 @@ function readImage(file) {
 
     reader.readAsDataURL(file);
 
-reader.onloadend = function () {
-    console.log('Done', reader.readyState);
-    let height = img_to_display.height;
-    let width = img_to_display.width;
+    reader.onloadend = function () {
+        console.log('fini', reader.readyState);
+        let height = img_to_display.height;
+        let width = img_to_display.width;
 
-    console.log(height);
-    console.log(width);
-  };
+        console.log(height);
+        console.log(width);
+    };
 }

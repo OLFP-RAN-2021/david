@@ -1,18 +1,47 @@
+/*               D'abord un css reset                    */
 
-.All_the_screen {
-  display: flex;
-}
-/* Mon coté gauche de l'écran  */
-.Left_side {
-  background-color: rgb(14, 9, 9);
-  width: 70%;
+html, body, p, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0
 }
 
-.Right_side {
-  background-color: black;
-  display: block;
-  width: 30%;
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal
 }
+
+button, input, select {
+  margin: 0
+}
+
+html {
+  box-sizing: border-box
+}
+
+*, *::before, *::after {
+  box-sizing: inherit
+}
+
+img, video {
+  height: auto;
+  max-width: 100%
+}
+
+iframe {
+  border: 0
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td, th {
+  padding: 0
+}
+
+/*                  Fin du css reset                             */
+
 
 .box {
   border: 3px solid #666;
