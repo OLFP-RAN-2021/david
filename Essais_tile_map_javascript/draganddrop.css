@@ -50,3 +50,9 @@ td, th {
   padding: 10px;
   /* cursor: move; */
 }
+
+canvas{
+margin-top: 40px;
+margin-left: 40px;
+
+}
