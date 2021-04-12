@@ -1,7 +1,13 @@
-let load_flag = false;
+let Angle=0;
+let canevas = document.getElementById('Canevas');
+let context = canevas.getContext('2d');
 
-var canevas = document.getElementById('Canevas');
-var context = canevas.getContext('2d');
+let canvas_width=300;
+let canvas_height=200;
+
+console.log("Coucou ;")
+
+console.log(canvas_width, canvas_height);
 
 let left_button = document.getElementById("left");
 let right_button = document.getElementById("right");
@@ -10,12 +16,22 @@ left_button.addEventListener("click", left_rotate);
 right_button.addEventListener("click", right_rotate);
 
 function left_rotate() {
+    Angle=Angle+10;
+    if (Angle>360)
+    {
+        Angle=Angle-360;
+    }
+    Do_the_rotation_yahoooo(Angle);
     console.log("Left button");
-    context.rotate(90 * Math.PI / 180);
-    context.drawImage(img_to_display, 0, 0, 100, 100);
 }
 
 function right_rotate() {
+    Angle=Angle-10;
+    if (Angle<0)
+    {
+        Angle=Angle+360;
+    }
+    Do_the_rotation_yahoooo(Angle);
     console.log("Right button");
 }
 
@@ -25,24 +41,8 @@ function dropHandler(ev) {
 
     console.log(ev.dataTransfer.files[0].name);
     let Img_file = ev.dataTransfer.files[0];
-    let img_to_display = document.getElementById("img_to_display")
 
-    readImage(Img_file);
-
-    document.getElementById("img_to_display").height = "100";
-    document.getElementById("img_to_display").width = "100";
-
-    // var canevas = document.getElementById('Canevas');
-    // var context = canevas.getContext('2d');
-
-    //     ctx.rotate(45 * Math.PI / 180);
-
-    let imgwidth = img_to_display.offsetWidth;
-    let imgheight = img_to_display.offsetHeight;
-    canvas.width = imgwidth;
-    canvas.height = imgheight;
-    console.log(load_flag);
-    context.drawImage(img_to_display, 0, 0, 100, 100);
+    Read_and_display_image(Img_file);
 
 }
 
@@ -52,55 +52,35 @@ function dragOverHandler(ev) {
     ev.preventDefault();
 }
 
-function readImage(file) {
+function Read_and_display_image(file) {
     // Protection special Mathieu, seulement prendre les MIME image
     if (!file.type.startsWith('image/')) {
+        console.log("Ah ben bravo !");
         return;
     }
 
+    img_prov= new Image();
     const reader = new FileReader();
     reader.addEventListener('load', (event) => {
-        img_to_display.src = event.target.result;
-    })
+        img_prov.src = event.target.result;
+    });
 
     reader.readAsDataURL(file);
+
     reader.addEventListener('load', (event) => {
         let canvas = document.getElementById('Canevas');
-        console.log(canvas);
         let context = canvas.getContext('2d');
 
-        let imgwidth = img_to_display.offsetWidth;
-        let imgheight = img_to_display.offsetHeight;
-        canvas.width = imgwidth;
-        canvas.height = imgheight;
-        console.log(load_flag);
-        context.drawImage(img_to_display, 0, 0, 100, 100);
-        console.log("Data as url end");
-    })
+        context.drawImage(img_prov, 0, 0, 300, 200);
+    });
 
-
-    reader.onloadend = function () {
-        console.log('fini', reader.readyState);
-        let height = img_to_display.height;
-        let width = img_to_display.width;
-
-        console.log(height);
-        console.log(width);
-        load_flag = true;
-
-        // document.getElementById("img_to_display").height = "100";
-        // document.getElementById("img_to_display").width = "100";
-
-        // let canvas = document.getElementById('Canevas');
-        // console.log(canvas);
-        // let context = canvas.getContext('2d');
-
-        // let imgwidth = img_to_display.offsetWidth;
-        // let imgheight = img_to_display.offsetHeight;
-        // canvas.width = imgwidth;
-        // canvas.height = imgheight;
-        // console.log(load_flag);
-        // context.drawImage(img_to_display, 0, 0, 100, 100);
-
-    };
+}
+function Do_the_rotation_yahoooo(degrees){
+    console.log(degrees);
+    context.clearRect(0,0,300,200);
+    context.save();
+    context.translate(150,100);
+    context.rotate(degrees*Math.PI/180);
+    context.drawImage(img_prov,-150,-100,300,200);
+    context.restore();
 }
