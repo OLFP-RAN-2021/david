@@ -57,20 +57,12 @@ body {
 }
 canvas{
   border: 1px dashed red;
+  width: 300px;
+  height: 200px;
 }
-/* canvas {
-  display: inline;
-  height: 300px;
-  width: 200px;
-  border: 1px solid blue;
-  align-self: center;
-*/
+
 
 .center{
 text-align: center;
+}
 
-}
-.center_div {
-  margin: 0 auto;
-  width: 100px; 
-}
