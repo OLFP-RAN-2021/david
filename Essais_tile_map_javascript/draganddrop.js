@@ -6,11 +6,13 @@ let context = canevas.getContext('2d');
 let left_button = document.getElementById("left");
 let right_button = document.getElementById("right");
 
+// On installe nos 'ecouteurs'.
 canevas.addEventListener("drop", drop_manager)
 canevas.addEventListener("dragover", drag_over)
 left_button.addEventListener("click", left_rotate);
 right_button.addEventListener("click", right_rotate);
 
+// Recupere la taille du canevas, +2 pour la bordure
 let cnv_h = canevas.clientHeight + 2;
 let cnv_w = canevas.clientWidth + 2;
 
@@ -51,6 +53,10 @@ function drag_over(ev) {
 }
 
 function Read_and_display_image(file) {
+    // ev.preventDefault();
+
+    // console.log(ev.dataTransfer.files[0].name);
+    // let Img_file = ev.dataTransfer.files[0];
 
     // Protection special Mathieu, seulement prendre les MIME image
     if (!file.type.startsWith('image/')) {
