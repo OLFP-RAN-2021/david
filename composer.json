@@ -1,0 +1,12 @@
+{
+    "name": "stagiaire/transfert",
+    "authors": [
+        {
+            "name": "Plusdepseudodispo",
+            "email": "commande@jagware.org"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "^6.2"
+    }
+}

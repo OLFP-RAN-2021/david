@@ -1,4 +1,5 @@
 let canevas = document.getElementById('Canevas');
+let emailAdress = document.getElementById('email').value;
 
 // On installe nos 'ecouteurs'.
 canevas.addEventListener("drop", drop_manager)
@@ -11,33 +12,38 @@ document.body.addEventListener("drop", e => e.preventDefault())
 function drop_manager(ev) {
     ev.preventDefault();
 
+    document.getElementById('errorname').innerHTML="";  
+    console.log(emailAdress);
+    if (!emailIsValid(emailAdress))
+    {
+    document.getElementById('errorname').innerHTML="Veuillez entrez un email valide"; 
+;
+
+    let formData = new FormData();
+
     for (var i = 0; i < event.dataTransfer.files.length; i++) {
-    console.log(ev.dataTransfer.files[i].name);
-    var imgFile = ev.dataTransfer.files[i];
-    var pathFile = ev.dataTransfer.files[i].path;
-    // console.log(imgFile);
-    // console.log(pathFile);
+        //  console.log(ev.dataTransfer.files[i].name);
+        var file = ev.dataTransfer.files[i];
+        formData.append('files[]', file)
+        formData.append('Coucou','hibou')   // Pour l'envoi de l'email
     }
 
-    let data = new FormData();
-    data.append("lulu", "Yeah !!");
-    data.append("key", "ev.dataTransfer.files[0].name");
 
+    // fetch("http://127.0.0.1/transfert/index.php", {
+    //     method: "POST",
+    //     body:formData
+    // })
+    //     .then(response => {
+    //         if (response.status === 500) {
+    //             alert('Server error')
+    //         } else {
+    //             console.log(response.status)
+    //             return response.text()
 
-    fetch("http://127.0.0.1/transfert/index.php", {
-        method: "POST",
-        body:data
-    })
-    .then(response => {
-        if(response.status === 500){
-            alert('Server error')
-        } else {
-            console.log('Sended')
-            response.text()
-        }
-    })
-    .then (data => console.log(data))
-
+    //         }
+    //     })
+    //     .then(data => console.log(data))
+    }
 }
 
 function drag_over(ev) {
@@ -46,3 +52,10 @@ function drag_over(ev) {
     ev.preventDefault();
 }
 
+// function validateEmail(email) {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// }
+function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
+  }
