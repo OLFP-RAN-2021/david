@@ -12,39 +12,39 @@ document.body.addEventListener("drop", e => e.preventDefault())
 function drop_manager(ev) {
     ev.preventDefault();
 
-    document.getElementById('errorname').innerHTML="";  
-    console.log(emailAdress);
-    if (!emailIsValid(emailAdress))
-    {
-    document.getElementById('errorname').innerHTML="Veuillez entrez un email valide"; 
-;
+    document.getElementById('errorname').innerHTML = "";
 
-    let formData = new FormData();
-
-    for (var i = 0; i < event.dataTransfer.files.length; i++) {
-        //  console.log(ev.dataTransfer.files[i].name);
-        var file = ev.dataTransfer.files[i];
-        formData.append('files[]', file)
-        formData.append('Coucou','hibou')   // Pour l'envoi de l'email
+    if (emailIsValid(emailAdress)) {
+        document.getElementById('errorname').innerHTML = "Veuillez entrez un email valide";
     }
+    else {
+       document.getElementById('errorname').innerHTML = "";
+       
+        let formData = new FormData();
+
+        for (var i = 0; i < event.dataTransfer.files.length; i++) {
+            var file = ev.dataTransfer.files[i];
+            formData.append('files[]', file)
+            formData.append('email', emailAdress)   // Pour l'envoi de l'email
+        }
 
 
-    // fetch("http://127.0.0.1/transfert/index.php", {
-    //     method: "POST",
-    //     body:formData
-    // })
-    //     .then(response => {
-    //         if (response.status === 500) {
-    //             alert('Server error')
-    //         } else {
-    //             console.log(response.status)
-    //             return response.text()
+        // fetch("http://127.0.0.1/transfert/index.php", {
+        //     method: "POST",
+        //     body:formData
+        // })
+        //     .then(response => {
+        //         if (response.status === 500) {
+        //             alert('Server error')
+        //         } else {
+        //             console.log(response.status)
+        //             return response.text()
 
-    //         }
-    //     })
-    //     .then(data => console.log(data))
+        //         }
+        //     })
+        //     .then(data => console.log(data))
     }
-}
+  }
 
 function drag_over(ev) {
     // Sinon le navigateur se prend le droit d'ouvrir le document
@@ -52,10 +52,6 @@ function drag_over(ev) {
     ev.preventDefault();
 }
 
-// function validateEmail(email) {
-//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return re.test(String(email).toLowerCase());
-// }
-function emailIsValid (email) {
+function emailIsValid(email) {
     return /\S+@\S+\.\S+/.test(email)
-  }
+}
