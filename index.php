@@ -9,10 +9,10 @@ header("Access-Control-Allow-Origin: *");
             $email=$_POST['email'];
         }
         $_SESSION['email']=$email;
+        
+        $nbfiles = count($_FILES['files']['tmp_name']);
 
-        $files = count($_FILES['files']['tmp_name']);
-
-        for ($i = 0; $i < $files; $i++) {
+        for ($i = 0; $i < $nbfiles; $i++) {
             $fileName = $_FILES['files']['name'][$i];
             $fileTmp = $_FILES['files']['tmp_name'][$i];
 
