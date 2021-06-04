@@ -1,29 +1,34 @@
-let canevas = document.getElementById('Canevas');
-let emailAdress = document.getElementById('email').value;
-let sendButton = document.getElementById('Send');
+// let canevas = document.getElementById('Canevas');
+let listefile = document.getElementById("liste")
+let emailAdress = document.getElementById("email").value
+let sendButton = document.getElementById("Send")
 
-// On installe nos 'ecouteurs'.
-// canevas.addEventListener("drop", drop_manager)
-// canevas.addEventListener("dragover", drag_over)
+listefile.addEventListener("drop", affFiles)
+listefile.addEventListener("dragover", affFiles)
 
-canevas.addEventListener("drop", affFiles)
-canevas.addEventListener("dragover", affFiles)
+// listefile.addEventListener("drop", drop_manager)
+// listefile.addEventListener("dragover", drop_manager)
 
 sendButton.addEventListener("click", drop_manager)
 
-// Merci a Eric 
 document.body.addEventListener("dragover", e => e.preventDefault())
 document.body.addEventListener("drop", e => e.preventDefault())
+
+let formData = new FormData();
 
 function affFiles(ev) {
     ev.preventDefault();
 
+    let myBr = document.createElement("br");
+    console.log('aff files');
+
     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
         var file = ev.dataTransfer.files[i];
-        console.log(ev.dataTransfer.files[i].name)
+        formData.append('files[]', file)
+        listefile.append(file.name);
+        listefile.append(myBr)
+        console.log(file);
     }
-
-    canevas.append("")
 }
 
 function drop_manager(ev) {
@@ -31,36 +36,42 @@ function drop_manager(ev) {
 
     document.getElementById('errorname').innerHTML = "";
 
-    if (emailIsValid(emailAdress)) {
-        document.getElementById('errorname').innerHTML = "Veuillez entrez un email valide";
-    }
-    else {
-        document.getElementById('errorname').innerHTML = "";
+    // if (emailIsValid(emailAdress)) {
+    //     document.getElementById('errorname').innerHTML = "Veuillez entrez un email valide";
+    // }
+    // else {
+    //     document.getElementById('errorname').innerHTML = "";
 
-        let formData = new FormData();
+    emailAdress = "gt-turbo@jagware.org"
 
-        for (var i = 0; i < event.dataTransfer.files.length; i++) {
-            var file = ev.dataTransfer.files[i];
-            formData.append('files[]', file)
-            formData.append('email', emailAdress)   // Pour l'envoi de l'email
-        }
+    formData.append('email', emailAdress)
 
+    console.log(emailAdress);
 
-        fetch("http://127.0.0.1/transfert/index.php", {
-            method: "POST",
-            body:formData
+    // let formData = new FormData();
+
+    // for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+    //     var file = ev.dataTransfer.files[i];
+    //     formData.append('files[]', file)
+    //     formData.append('email', emailAdress)   // Pour l'envoi de l'email
+    //     console.log(file);
+    // }
+
+    fetch("http://127.0.0.1/transfert/index.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => {
+            if (response.status === 500) {
+                alert('Server error')
+            } else {
+                console.log(response.status)
+                return response.text()
+
+            }
         })
-            .then(response => {
-                if (response.status === 500) {
-                    alert('Server error')
-                } else {
-                    console.log(response.status)
-                    return response.text()
-
-                }
-            })
-            .then(data => console.log(data))
-    }
+        .then(data => console.log(data))
+    // }
 }
 
 function drag_over(ev) {
@@ -71,4 +82,8 @@ function drag_over(ev) {
 
 function emailIsValid(email) {
     return /\S+@\S+\.\S+/.test(email)
+}
+
+function messsageError(message) {
+
 }

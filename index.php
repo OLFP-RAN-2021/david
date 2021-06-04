@@ -1,5 +1,7 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
 header("Access-Control-Allow-Origin: *");
 
     if (isset($_FILES['files'])) {
@@ -8,7 +10,6 @@ header("Access-Control-Allow-Origin: *");
         {
             $email=$_POST['email'];
         }
-        $_SESSION['email']=$email;
         
         $nbfiles = count($_FILES['files']['tmp_name']);
 
