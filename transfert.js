@@ -14,13 +14,15 @@ sendButton.addEventListener("click", drop_manager)
 document.body.addEventListener("dragover", e => e.preventDefault())
 document.body.addEventListener("drop", e => e.preventDefault())
 
+// console.log("coucou");
+
 let formData = new FormData();
 
 function affFiles(ev) {
     ev.preventDefault();
 
     let myBr = document.createElement("br");
-    console.log('aff files');
+    // console.log('aff files');
 
     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
         var file = ev.dataTransfer.files[i];
@@ -46,7 +48,7 @@ function drop_manager(ev) {
 
     formData.append('email', emailAdress)
 
-    console.log(emailAdress);
+    // console.log(emailAdress);
 
     // let formData = new FormData();
 

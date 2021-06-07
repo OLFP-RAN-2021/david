@@ -1,52 +1,31 @@
 <?php
 
-require_once 'vendor/autoload.php';
-
 header("Access-Control-Allow-Origin: *");
 
-    if (isset($_FILES['files'])) {
+require_once 'vendor/autoload.php';
+require_once 'Email.php';
 
-        if (isset($_POST['email']))
-        {
-            $email=$_POST['email'];
-        }
-        
-        $nbfiles = count($_FILES['files']['tmp_name']);
+if (isset($_FILES['files'])) {
 
-        for ($i = 0; $i < $nbfiles; $i++) {
-            $fileName = $_FILES['files']['name'][$i];
-            $fileTmp = $_FILES['files']['tmp_name'][$i];
+  if (isset($_POST['email'])) {
+    $email = $_POST['email'];
+  }
 
-            $file ='Telechargements/'. $fileName;
+  $nbfiles = count($_FILES['files']['tmp_name']);
 
-            if (move_uploaded_file($fileTmp, $file))
-            {
-              echo "Upload done";
-            }
-            else
-            {
-              echo 'upload error';
-            }
-        }
+  for ($i = 0; $i < $nbfiles; $i++) {
+    $fileName = $_FILES['files']['name'][$i];
+    $fileTmp = $_FILES['files']['tmp_name'][$i];
 
-        // Create the Transport
-$transport =(new Swift_SmtpTransport('smtp.gmail.com', 465,"ssl"))
-->setUsername('nomnomdejautiliser@gmail.com')
-->setPassword('12password34');
+    $file = 'Telechargements/' . $fileName;
 
-// // Create the Mailer using your created Transport
-$mailer = new Swift_Mailer($transport);
-
-// // Create a message
-$message = (new Swift_Message('Et hop un lien pour tes fichiers !!'))
-->setFrom(['john@doe.com' => 'Dada du 68 :)'])
-->setTo([$email])
-->setBody('http://127.0.0.1/transfert/telechargements/');
-
-// Send the message
-$result = $mailer->send($message);
-
+    if (move_uploaded_file($fileTmp, $file)) {
+      Email::createMessage($fileName);
+      echo "Upload done";
+    } else {
+      echo 'upload error';
+    }
+  }
+ 
 }
-   echo($email);
 
-?>

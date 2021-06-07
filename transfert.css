@@ -22,3 +22,8 @@ h1{
     padding: 5%;
    background-color: #aaa; 
 }
+h1
+{
+    color: indianred;
+    font-size: 40px; 
+}
