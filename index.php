@@ -24,9 +24,7 @@ if (isset($_FILES['files'])) {
       Email::createMessage($fileName);
       echo "Upload done";
     } else {
-      echo 'upload error';
+      echo 'error';
     }
   }
- 
 }
-

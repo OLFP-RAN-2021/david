@@ -19,11 +19,16 @@ h1{
 }
 #Main
 {
-    padding: 5%;
+    padding: 2%;
    background-color: #aaa; 
 }
 h1
 {
     color: indianred;
     font-size: 40px; 
+}
+#picture
+{
+    width: 150px;
+    height: 150px;
 }

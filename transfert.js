@@ -11,6 +11,7 @@ document.body.addEventListener("dragover", e => e.preventDefault())
 document.body.addEventListener("drop", e => e.preventDefault())
 
 let formData = new FormData();
+let flagfile = false;
 
 function affFiles(ev) {
     ev.preventDefault();
@@ -19,43 +20,51 @@ function affFiles(ev) {
 
     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
         var file = ev.dataTransfer.files[i];
-        formData.append('files[]', file)
+        formData.append('files[]', file);
+
         listefile.append(file.name);
-        listefile.append(myBr)
+        listefile.append(myBr);
         console.log(file);
+        flagfile = true;
     }
 }
 
 function drop_manager(ev) {
     ev.preventDefault();
 
-    document.getElementById('errorname').innerHTML = "";
+    let emailAdress = document.getElementById("email").value
 
-    // if (emailIsValid(emailAdress)) {
-    //     document.getElementById('errorname').innerHTML = "Veuillez entrez un email valide";
-    // }
-    // else {
-    //     document.getElementById('errorname').innerHTML = "";
+    messsageError("");   // Reinitialise le message d'erreur
 
-    emailAdress = "gt-turbo@jagware.org"
+    if (!emailIsValid(emailAdress)) {
+        messsageError("Veuillez entrez un email valide");
+    }
+    else {
 
-    formData.append('email', emailAdress)
+        if (flagfile == false) {
+            messsageError("Veuillez entrez au moins 1 fichier");
+        }
+        else {
+            formData.append('email', emailAdress)
 
-    fetch("http://127.0.0.1/transfert/index.php", {
-        method: "POST",
-        body: formData
-    })
-        .then(response => {
-            if (response.status === 500) {
-                alert('Server error')
-            } else {
-                console.log(response.status)
-                return response.text()
+            fetch("http://127.0.0.1/transfert/index.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => {
+                    if (response.status === 500) {
+                        alert('Server error')
+                    } else {
+                        console.log(response.status)
+                        console.log('Upload error')
+                        return response.text()
 
-            }
-        })
-        .then(data => console.log(data))
-    // }
+                    }
+                })
+                .then(data => console.log(data))
+
+        }
+    }
 }
 
 function drag_over(ev) {
@@ -65,9 +74,10 @@ function drag_over(ev) {
 }
 
 function emailIsValid(email) {
-    return /\S+@\S+\.\S+/.test(email)
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 function messsageError(message) {
-
+    document.getElementById('errorname').innerHTML = message;
 }
