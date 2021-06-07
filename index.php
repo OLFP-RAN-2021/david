@@ -1,9 +1,10 @@
 <?php
 
+use EmailSection\Email;
+
 header("Access-Control-Allow-Origin: *");
 
 require_once 'vendor/autoload.php';
-require_once 'Email.php';
 
 if (isset($_FILES['files'])) {
 
