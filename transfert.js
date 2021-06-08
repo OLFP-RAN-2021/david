@@ -1,4 +1,3 @@
-// let canevas = document.getElementById('Canevas');
 let listefile = document.getElementById("liste")
 let emailAdress = document.getElementById("email").value
 let sendButton = document.getElementById("Send")
@@ -18,13 +17,13 @@ function affFiles(ev) {
 
     let myBr = document.createElement("br");
 
-    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
-        var file = ev.dataTransfer.files[i];
+    for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+        let file = ev.dataTransfer.files[i];
         formData.append('files[]', file);
 
         listefile.append(file.name);
         listefile.append(myBr);
-        console.log(file);
+        //  console.log(file);
         flagfile = true;
     }
 }
@@ -58,11 +57,11 @@ function drop_manager(ev) {
                         console.log(response.status)
                         console.log('Upload error')
                         return response.text()
-
                     }
                 })
                 .then(data => console.log(data))
-                flagfile=false; 
+            listefile.innerHTML = "";
+            flagfile = false;
         }
     }
 }

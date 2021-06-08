@@ -10,7 +10,7 @@ if (isset($_FILES['files'])) {
 
   if (isset($_POST['email'])) {
     $email = $_POST['email'];
-  }
+  
 
   $nbfiles = count($_FILES['files']['tmp_name']);
 
@@ -27,4 +27,5 @@ if (isset($_FILES['files'])) {
       echo 'error';
     }
   }
+}
 }
