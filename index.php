@@ -21,7 +21,7 @@ if (isset($_FILES['files'])) {
     $file = 'Telechargements/' . $fileName;
 
     if (move_uploaded_file($fileTmp, $file)) {
-      Email::createMessage($fileName);
+      Email::createMessage($fileName, $email);
       echo "Upload done";
     } else {
       echo 'error';

@@ -62,7 +62,7 @@ function drop_manager(ev) {
                     }
                 })
                 .then(data => console.log(data))
-
+                flagfile=false; 
         }
     }
 }
