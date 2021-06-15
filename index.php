@@ -1,8 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 
 use EmailSection\Email;
-
-header("Access-Control-Allow-Origin: *");
 
 require_once 'vendor/autoload.php';
 
